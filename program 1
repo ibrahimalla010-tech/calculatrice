@@ -1,0 +1,20 @@
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.subjects = []
+        self.grades = {}
+    def add_subject(self, subject):
+        self.subjects.append(subject.name)
+        subject.students.append(self.name)
+    def add_score(self, subject_name, score):
+        self.grades[subject_name] = score
+    def print_report(self):
+        if len(self.grades) > 0:
+            average = sum(self.grades.values()) / len(self.grades)
+        else:
+            average = 0
+
+        print(f"Student: {self.name}")
+        print(f"Subjects: {self.subjects}")
+        print(f"Scores: {self.grades}")
+        print(f"Average: {average}")
